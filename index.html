@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <link rel="stylesheet" href="style.css">     
+</head>
+
+<body class="bodyy">
+    <div class="">
+        <div class="container">
+    <div x-data="{ count : 0 } ">
+        <h1>Counter</h1>
+        <div class="counter" x-text="count"></div>
+        <div>
+          <button class="btn" @click="count++">+</button>
+          <button class="btn" @click="count--">-</button>
+        </div>
+     </div>
+     
+
+  <div x-data="{ title: 'Hello Alpine' }">
+    <p x-text="title"></p>
+    <button class="btn" @click="title='Alpine Rocks!'">click me</button>
+</div>
+
+<div x-data="{ countdown: 600 }"
+     x-init="setInterval(function(){
+                countdown--;
+             }, 1000);
+             ">
+    <h1 x-text="countdown"></h1>
+</div>
+
+<div x-data="{ show: false }">
+    <button class="btn" @click="show=!show">Show</button>
+    <div x-show.transition="show">Hello</div>
+</div>
+
+<div  x-data="{ title: 'Use these Widgets to count your cash' }">
+    <p class= "ttt" x-text="title"></p>
+    <input type="text" x-model="title">
+</div>
+
+<div x-data="{ code: '<p>Dynamic Paragraph</p>' }">
+    <div x-html="code"></div>
+</div>
+
+<div x-data="{ code: '<p>Dynamic Paragraph</p>' }">
+    <div x-ref="sentence">Im a Pro at this mos!!</div>
+    <button class="btn" @click="$refs.sentence.innerText = 'Im jokingggg!!!'">Change Sentence</button>
+</div>
+
+<div x-data="{ socks: 'blue' }">
+    <template x-if="socks=='blue'">
+        <p>My airforces are blue</p>
+    </template>
+    <template x-if="socks=='green'">
+        <p>My airforces are green</p>
+    </template>
+    <button class="btn" @click="socks = 'green'">Change Sox</button>
+</div>
+
+<div x-data="{ groceries: ['Milk', 'Eggs', 'Cheese'] }">
+    <p>Groceries</p>
+    <ul>
+        <template x-for="item in groceries">
+            <li x-text="item"></li>
+        </template>
+    </ul>
+</div>
+</div>
+</div>
+
+
+
+</body>
+</html>
